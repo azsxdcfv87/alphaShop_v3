@@ -1,0 +1,86 @@
+.topTitle {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  color: var(--main-text);
+}
+
+.progressContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 48px;
+}
+
+.progressBar {
+  display: flex;
+  flex-grow: 1;
+  box-sizing: border-box;
+  max-width: 60px;
+  height: 1px;
+  margin: 0px 8px;
+  border: 1px solid var(--done-progress-border);
+}
+
+.pgbUndone {
+  composes: progressBar;
+  border-color: var(--undone-progress-border);
+}
+
+.progressGroup {
+  display: flex;
+
+  .progressIcon {
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    border-radius: 50%;
+
+    .text {
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      top: 0px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 24px;
+      text-align: center;
+    }
+  }
+
+  .progressLabel {
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
+
+.pgiDone {
+  composes: progressIcon;
+  background-color: var(--done-progress-border);
+
+  .text {
+    color: var(--undone-progress-border);
+  }
+}
+
+.pgiUndone {
+  composes: progressIcon;
+  background-color: transparent;
+  border: 1px solid var(--progress-undone-color);
+
+  .text {
+    color: var(--progress-undone-color);
+  }
+}
+
+.pglDone {
+  composes: progressLabel;
+  color: var(--main-text);
+}
+
+.pglUndone {
+  composes: progressLabel;
+  color: var(--progress-undone-color);
+}
