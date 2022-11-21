@@ -106,3 +106,17 @@ $form-full-width: 540;
   width: 50%;
   height: 100%;
 }
+
+.container {
+  display: flex;
+  padding: 50px 50px 0px 50px;
+}
+
+.sendInfo {
+  flex-basis: 50%;
+}
+
+.shoppingCart {
+  margin-left: 50px;
+  flex-basis: 50%;
+}

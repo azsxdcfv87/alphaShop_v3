@@ -1,44 +1,33 @@
-import React from 'react';
-import styles from './StepProgress.module.scss';
+import './StepProgress.scss'
 
 
-function Step({step, label}) {
+
+function StepProgress({ step }) {
+
   return (
-    <span className={styles.progressGroup}>
-      <span className={step === 1 ? styles.pgiDone : styles.pgiUndone}>
-        <span className={styles.text}>{step}</span>
-      </span>
-      <span className={step === 1 ? styles.pglDone : styles.pglUndone}>{label}</span>
-    </span>
-  );
-}
+    <div className='stepProgress'>
+      <div className='checkedTitle'>
+        <h2>結帳</h2>
+      </div>
 
-function ConnectBar({className}) {
-  return <span className={className}></span>
-}
-
-function StepProgress() {
-  return (
-    <>
-      <h2 className={styles.topTitle}>結帳</h2>
-      <section className={styles.progressContainer}>
-        <Step 
-          step={1}
-          label={'寄送地址'}
-        />
-        <ConnectBar className={styles.progressBar}/>
-        <Step 
-          step={2}
-          label={'運送方式'}
-        />
-        <ConnectBar className={styles.pgbUndone}/>
-        <Step 
-          step={3}
-          label={'付款資訊'}
-        />
-      </section>
-    </>
-  );
+      <div className='checkedStepper'>
+        <div className={step >= 1 ? ('step active ' + (step > 1 ? 'checked' : '')) : 'step'}>
+          <div className='circleContainer'></div>
+          <div className='labelContainer'>寄送地址</div>
+        </div>
+        <div className={step >= 2 ? ('step active ' + (step > 2 ? 'checked' : '')) : 'step'}>
+          <div className='circleContainer'></div>
+          <span className='connectLine'></span>
+          <div className='labelContainer'>運送方式</div>
+        </div>
+        <div className={step === 3 ? ('step active') : 'step'}>
+          <div className='circleContainer'></div>
+          <span className='connectLine'></span>
+          <div className='labelContainer'>付款資訊</div>
+        </div>
+      </div>
+    </div >
+  )
 }
 
 export default StepProgress;
